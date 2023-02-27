@@ -1,9 +1,20 @@
-import mongoose from "mongoose";
+import { Schema, model } from "mongoose";
 
-const Car = new mongoose.Schema({
-  car: { type: String, required: true },
-  event: { type: String, required: true },
-  driver: { type: String, required: true },
-});
+const Car = Schema(
+  {
+    brand: { type: String, required: true },
+    model: { type: String, required: true },
+    year: { type: String, required: true },
+    fuel: { type: String, required: true },
+    mileage: { type: String, required: true },
+    sizeTank: { type: String, required: true },
+    cost: { type: String },
+    startFuel: { type: String, default: "0" },
+    engineType: { type: String },
+    engineDisplacement: { type: String },
+    enginePower: { type: String },
+  },
+  { timestamps: true }
+);
 
-export default mongoose.model("Car", Car);
+export default model("Car", Car);
