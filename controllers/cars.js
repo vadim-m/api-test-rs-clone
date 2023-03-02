@@ -71,7 +71,14 @@ class CarController {
       const userID = req.headers["user-id"];
       const updatedCar = await User.findByIdAndUpdate(
         userID,
-        { hasCar: false, carId: null },
+        {
+          hasCar: false,
+          carId: null,
+          others: [],
+          refuels: [],
+          reminders: [],
+          services: [],
+        },
         { new: true }
       );
 
